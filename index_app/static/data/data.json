@@ -1,0 +1,24 @@
+{
+  "title": "Logan Lin Main Page",
+  "name": {
+    "cn_name": "林彦",
+    "en_name": "Logan Lin"
+  },
+  "photo": "/static/image/photo.png",
+  "intro-links": [["Email", "mailto:linyan@bjtu.edu.cn", "mail"],
+      ["GitHub", "https://github.com/Logan-Lin", "code"],
+      ["Bilibili", "https://space.bilibili.com/2480785", "video_library"],
+      ["Bangumi", "https://bgm.tv/user/423626", "view_comfy"]],
+  "contents": [
+    {
+      "title": "Short Bio",
+      "file_name": "bio.md",
+      "id": "bio"
+    },
+    {
+      "title": "Personal Interest",
+      "file_name": "personal_interest.md",
+      "id": "personal-interest"
+    }
+  ]
+}

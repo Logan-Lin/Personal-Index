@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{data['title']}}</title>
+    <link rel="stylesheet" href="/static/module/mdui/css/mdui.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/module/mdui/js/mdui.min.js"></script>
+    <script src="/static/module/jquery-3.3.1.min.js"></script>
+</head>
+<body class="mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-color-grey-100">
+    <div class="mdui-invisible" id="top-row"></div>
+    <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-4 mdui-color-indigo">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#nav-drawer'}">
+                    <i class="mdui-icon material-icons">menu</i>
+            </button>
+            <div class="mdui-typo-headline">{{data['title']}}</div>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" id="style-switch-btn">
+                <i class="mdui-icon material-icons">style</i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mdui-drawer mdui-drawer-close mdui-shadow-2 mdui-color-grey-50" id="nav-drawer">
+        <ul class="mdui-list" id="nav-list">
+            {% for content_meta in contents %}
+            <a href="#{{content_meta[0]}}-anchor">
+                <li class="mdui-list-item mdui-ripple">{{content_meta[1]}}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="mdui-container" id="main-container">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-3">
+                <img class="mdui-img-fluid mdui-img-rounded mdui-shadow-2 mdui-hoverable" src="{{ data['photo'] }}">
+            </div>
+            <div class="mdui-col-xs-9">
+                <div class="mdui-card mdui-hoverable">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">{{data['name']['en_name']}} {{data['name']['cn_name']}}</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">{{intro | safe}}</div>
+                    <div class="mdui-card-actions">
+                        {% for intro_link in data['intro-links'] %}
+                        <a class="mdui-btn mdui-ripple" href="{{intro_link[1]}}">
+                            <i class="mdui-icon material-icons">{{intro_link[2]}}</i>
+                            {{intro_link[0]}}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for content_meta in contents %}
+        <div class="jump-anchor mdui-invisible" id="{{content_meta[0]}}-anchor"></div>
+        <div class="mdui-row"><div class="mdui-col-xs-12">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary"><div class="mdui-card-primary-title">{{content_meta[1]}}</div></div>
+                <div class="mdui-card-content mdui-typo" id="{{content_meta[0]}}-content">
+                    {{content_meta[2] | safe}}
+                </div>
+            </div>
+        </div></div>
+        {% endfor %}
+
+        <a href='#top-row'><button class="mdui-fab mdui-fab-mini mdui-fab-fixed mdui-ripple mdui-color-amber">
+                <i class="mdui-icon material-icons">arrow_upward</i>
+        </button></a>
+
+        <div class="mdui-container-fluid mdui-m-t-4 mdui-m-b-2">
+            <div class="mdui-text-center mdui-text-color-grey-700 mdui-typo links-to-blank">
+                {{copyright | safe}}
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/static/js/index.js"></script>
+</html>

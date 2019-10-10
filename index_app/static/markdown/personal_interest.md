@@ -1,0 +1,6 @@
+- Photography
+- Hi-Fi music consumption and equipments
+- アニメとマンガ
+- Playing Drum Set
+- Playing badminton
+- Console gaming
