@@ -9,11 +9,13 @@ $('#style-switch-btn').on('click', function() {
         $('.mdui-card').removeClass('mdui-color-grey-800');
         $('body').removeClass('mdui-color-grey-900');
         $('header').removeClass('mdui-color-black');
+        $('.mdui-fab').removeClass('mdui-color-brown-700');
         isDarkMode = false;
     } else {
         $('.mdui-card').addClass('mdui-color-grey-800');
         $('body').addClass('mdui-color-grey-900');
         $('header').addClass('mdui-color-black');
+        $('.mdui-fab').addClass('mdui-color-brown-700');
         isDarkMode = true;
     }
 })
